@@ -17,12 +17,6 @@ class Admin extends CI_Controller {
 		$data['title']= "Dashboard";
 		$this->load->view('v_admin',$data);
 	}
-	public function ngapus_user($id)
-	{
-		$where = array('id' => $id);
-		$this->m_data->delete_by_id($where, 'tb_user');
-		echo json_encode(array("status" => TRUE));
-	}
 
 	function data_user(){
 		$data['tb_user']= $this->m_data->tampil_data()->result();
@@ -59,5 +53,4 @@ class Admin extends CI_Controller {
 		$data['title']= "Data reservation";
 		$this->load->view('v_admin_data_reservation',$data);
 	}
-
 }

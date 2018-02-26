@@ -13,7 +13,6 @@ class Login extends CI_Controller {
 	{
 		$this->load->view('v_login');
 		if ($this->input->post['submit']) {
-			# code...
 			$this->aksi_login();
 		}
 	}
@@ -42,7 +41,7 @@ class Login extends CI_Controller {
 				redirect(base_url('admin'));
 			}
 			if ($this->session->userdata('level')==='user') {
-				echo "user";
+				redirect(base_url('home'));
 			}
 
 		}else{

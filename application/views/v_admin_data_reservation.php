@@ -37,14 +37,14 @@
                     <tr>
                       <th>No id</th>
                       <th>Code</th>
-                      <th>at</th>
-                      <th>date</th>
+                      <th>Reservation at</th>
                       <th>customer id</th>
                       <th>seat code</th>
                       <th>rute id</th>
                       <th>depart at</th>
                       <th>price</th>
                       <th>user id</th>
+                      <th>Status</th>
                       <th>What will you do ?</th>
                     </tr>
                   </thead>
@@ -53,14 +53,14 @@
                     <tr>
                       <td><?php echo $reservation->id; ?></td>
                       <td><?php echo $reservation->reservation_code; ?></td>
-                      <td><?php echo $reservation->reservation_at; ?></td>
-                      <td><?php echo $reservation->reservation_date; ?></td>
+                      <td><?php echo $reservation->reservation_at; ?></td>            
                       <td><?php echo $reservation->customer_id; ?></td>
                       <td><?php echo $reservation->seat_code; ?></td>
                       <td><?php echo $reservation->rute_id; ?></td>
                       <td><?php echo $reservation->depart_at; ?></td>
                       <td><?php echo $reservation->price; ?></td>
                       <td><?php echo $reservation->user_id; ?></td>
+                      <td><?php echo $reservation->status; ?></td>
                    
                       <td>
                         <a href=<?php echo base_url("crud/edit_reservation/".$reservation->id); ?> class="btn btn-primary a-btn-slide-text">
@@ -88,7 +88,8 @@
      <!-- /.content -->
    </div>
    <!-- /.content-wrapper -->
-<script>
+<?php  $this->load->view('layout_admin/footer');?>
+  <script>
   $(function () {
     $("#data_reservation").DataTable({
        "paging": true,
@@ -100,4 +101,3 @@
     });
   });
 </script>
-<?php $this->load->view('layout_admin/footer'); ?>

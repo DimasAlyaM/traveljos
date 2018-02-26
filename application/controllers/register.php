@@ -10,7 +10,9 @@ class Register extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('layout/header');
 		$this->load->view('v_register');
+		$this->load->view('layout/footer');
 	}
 
 }

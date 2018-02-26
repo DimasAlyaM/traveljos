@@ -1,0 +1,16 @@
+.rd-navbar-static, .rd-navbar-fullwidth {
+    background-color: #000;
+}
+.page-footer{
+	background-color:#000; 
+}
+.img-responsive center-block{
+	width: 80px;
+}
+.rd-navbar-static.rd-navbar--is-stuck, .rd-navbar-static.rd-navbar--is-clone, .rd-navbar-fullwidth.rd-navbar--is-stuck, .rd-navbar-fullwidth.rd-navbar--is-clone{
+    background-color: #000;	
+}
+.bg-gray-dark{
+	background: #000;
+	fill: #000;
+}

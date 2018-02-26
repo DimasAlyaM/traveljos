@@ -34,6 +34,7 @@
                 <table id="data_user" class="table table-bordered table-striped">
                   <thead>
                     <tr>
+                      <th>No</th>
                       <th>No id</th>
                       <th>Fullname</th>
                       <th>Username</th>
@@ -43,8 +44,12 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php  foreach ($tb_user as $u) { ?>
+                    <?php
+                      $no = 1;
+                      foreach ($tb_user as $u) { 
+                    ?>
                     <tr>
+                      <td><?php echo $no++ ?></td>
                       <td><?php echo $u->id; ?></td>
                       <td><?php echo $u->fullname; ?></td>
                       <td><?php echo $u->username; ?></td>
@@ -55,9 +60,13 @@
                           <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
                           <span><strong>Edit</strong></span>            
                         </a>
-                       <button class="btn btn-danger" onclick="ngapus_user(<?php echo $u->id;?>)">Hapus</button>
+                        <a href=<?php echo base_url("crud/hapus/".$u->id); ?> class="btn btn-primary a-btn-slide-text">
+                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                         <span><strong>Delete</strong></span>            
+                       </a>
                      </td>
                    </tr>
+                  
                    <?php } ?>
                  </tfoot>
                </table>
@@ -73,6 +82,7 @@
      <!-- /.content -->
     </div>
    <!-- /.content-wrapper -->
+   <?php  $this->load->view('layout_admin/footer');?>
   <script>
   $(function () {
     $("#data_user").DataTable({
@@ -84,28 +94,4 @@
       "autoWidth": true
     });
   });
-
-  function ngapus_user(id)
-        {
-          if(confirm('Anda yakin akan menghapus user dengan id ' + id + '?'))
-          {
-            // ajax delete data from database
-              $.ajax({
-                url : "<?php echo base_url('admin/ngapus_user')?>/"+id,
-                type: "POST",
-                dataType: "JSON",
-                success: function(data)
-                {
-                   location.reload();
-                },
-                error: function (jqXHR, textStatus, errorThrown)
-                {
-                    alert('Error pada saat menghapus data!');
-                }
-            });
-
-          }
-        }
-
 </script>
-<?php  $this->load->view('layout_admin/footer');?>

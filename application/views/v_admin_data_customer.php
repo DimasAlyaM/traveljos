@@ -40,6 +40,7 @@
                       <th>Name</th>
                       <th>Address</th>
                       <th>Phone</th>
+                      <th>Email</th>
                       <th>Gender</th>
                       <th>Action</th>
                     </tr>
@@ -51,6 +52,7 @@
                       <td><?php echo $c->name; ?></td>
                       <td><?php echo $c->address; ?></td>
                       <td><?php echo $c->phone; ?></td>
+                      <td><?php echo $c->email; ?></td>
                       <td><?php echo $c->gender; ?></td>
                       <td>
                         <a href=<?php echo base_url("crud/edit_customer/".$c->id); ?> class="btn btn-primary a-btn-slide-text">
@@ -78,7 +80,8 @@
      <!-- /.content -->
    </div>
    <!-- /.content-wrapper -->
-<script>
+<?php  $this->load->view('layout_admin/footer');?>
+  <script>
   $(function () {
     $("#data_customer").DataTable({
        "paging": true,
@@ -90,4 +93,3 @@
     });
   });
 </script>
-<?php $this->load->view('layout_admin/footer'); ?>

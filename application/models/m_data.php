@@ -23,11 +23,6 @@ class M_data extends CI_Model{
 		$this->db->where($where);
 		$this->db->update($table,$data);
 	}
-	public function delete_by_id($where, $table)
-	{
-		$this->db->where($where);
-		$this->db->delete($table);
-	}
 
 
 		
@@ -51,4 +46,11 @@ class M_data extends CI_Model{
 		return $this->db->get('tb_reservation');
 	}
 
+
+	function join_customer(){
+		$this->db->select('fullname,name, username, address, phone, gender');
+		$this->db->join('tb_user', 'tb_user.id = tb_customer.id');
+		return $this->db->get('tb_customer');
+		
+	}
 }
